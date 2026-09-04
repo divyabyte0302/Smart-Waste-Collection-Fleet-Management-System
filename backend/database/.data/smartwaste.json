@@ -1,0 +1,573 @@
+{
+  "users": [
+    {
+      "id": "usr_admin_1",
+      "name": "Director Arthur Vance",
+      "email": "admin@smartwaste.gov",
+      "password": "admin123",
+      "role": "ADMIN",
+      "phone": "+1 (555) 019-2831",
+      "address": "City Hall, Department of Public Sanitation, Suite 400",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"
+    },
+    {
+      "id": "usr_driver_1",
+      "name": "Marcus Chen",
+      "email": "m.chen@smartwaste.gov",
+      "password": "driver123",
+      "role": "DRIVER",
+      "phone": "+1 (555) 018-9921",
+      "address": "14 Oakridge Way, Westside",
+      "avatar_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150"
+    },
+    {
+      "id": "usr_driver_2",
+      "name": "Elena Rodriguez",
+      "email": "e.rodriguez@smartwaste.gov",
+      "password": "driver123",
+      "role": "DRIVER",
+      "phone": "+1 (555) 017-4432",
+      "address": "88 Palmetto Court, Metro North",
+      "avatar_url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150"
+    },
+    {
+      "id": "usr_driver_3",
+      "name": "Jamal Washington",
+      "email": "j.washington@smartwaste.gov",
+      "password": "driver123",
+      "role": "DRIVER",
+      "phone": "+1 (555) 016-7788",
+      "address": "302 Elm Street, Downtown",
+      "avatar_url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150"
+    },
+    {
+      "id": "usr_citizen_1",
+      "name": "Sophia Martinez",
+      "email": "sophia.m@gmail.com",
+      "password": "citizen123",
+      "role": "CITIZEN",
+      "phone": "+1 (555) 234-5678",
+      "address": "742 Evergreen Terrace, Sector 4",
+      "avatar_url": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150"
+    },
+    {
+      "id": "usr_cit_1788496426305",
+      "created_at": "2026-09-04T04:33:46.305Z",
+      "updated_at": "2026-09-04T04:33:46.305Z",
+      "name": "Carlos Santana",
+      "email": "carlos@example.com",
+      "password": "secretpass123",
+      "role": "CITIZEN",
+      "phone": "+1 (555) 777-8899",
+      "address": "505 Sunset Blvd",
+      "avatar_url": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"
+    }
+  ],
+  "zones": [
+    {
+      "id": "zone_01",
+      "name": "Downtown Central",
+      "code": "ZN-01",
+      "description": "High-density commercial center, retail strips, and civic plazas",
+      "population": 85000,
+      "area_sq_km": 14.5,
+      "color_hex": "#10b981",
+      "center_lat": 40.7128,
+      "center_lng": -74.006
+    },
+    {
+      "id": "zone_02",
+      "name": "Metro North Residential",
+      "code": "ZN-02",
+      "description": "Suburban single-family neighborhoods, community parks, and schools",
+      "population": 120000,
+      "area_sq_km": 28.2,
+      "color_hex": "#06b6d4",
+      "center_lat": 40.73,
+      "center_lng": -73.99
+    },
+    {
+      "id": "zone_03",
+      "name": "Green Valley Eco-District",
+      "code": "ZN-03",
+      "description": "Mixed residential and green belt conservation district with zero-waste mandates",
+      "population": 62000,
+      "area_sq_km": 19.8,
+      "color_hex": "#84cc16",
+      "center_lat": 40.745,
+      "center_lng": -74.02
+    },
+    {
+      "id": "zone_04",
+      "name": "West Industrial & Port",
+      "code": "ZN-04",
+      "description": "Warehouses, manufacturing plants, port logistics, and commercial docks",
+      "population": 34000,
+      "area_sq_km": 35,
+      "color_hex": "#f59e0b",
+      "center_lat": 40.7,
+      "center_lng": -74.035
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "veh_101",
+      "vehicle_number": "TRK-101",
+      "model": "Volvo FL Rear Compactor 280",
+      "type": "Rear Loader Compactor",
+      "capacity_tons": 10,
+      "current_load_tons": 6.8,
+      "fuel_percentage": 78,
+      "status": "ON_ROUTE",
+      "driver_id": "usr_driver_1",
+      "driver_name": "Marcus Chen",
+      "assigned_zone_id": "zone_01",
+      "current_lat": 40.7145,
+      "current_lng": -74.008,
+      "last_maintenance_date": "2026-08-15"
+    },
+    {
+      "id": "veh_102",
+      "vehicle_number": "TRK-102",
+      "model": "Mercedes-Benz Econic Recycler",
+      "type": "Multi-Compartment Recycler",
+      "capacity_tons": 12,
+      "current_load_tons": 3.2,
+      "fuel_percentage": 92,
+      "status": "ON_ROUTE",
+      "driver_id": "usr_driver_2",
+      "driver_name": "Elena Rodriguez",
+      "assigned_zone_id": "zone_02",
+      "current_lat": 40.732,
+      "current_lng": -73.988,
+      "last_maintenance_date": "2026-08-20"
+    },
+    {
+      "id": "veh_103",
+      "vehicle_number": "TRK-103",
+      "model": "BYD T8F All-Electric Collector",
+      "type": "Electric Mini Sweeper / Collector",
+      "capacity_tons": 7.5,
+      "current_load_tons": 0,
+      "fuel_percentage": 100,
+      "status": "AVAILABLE",
+      "driver_id": "usr_driver_3",
+      "driver_name": "Jamal Washington",
+      "assigned_zone_id": "zone_03",
+      "current_lat": 40.742,
+      "current_lng": -74.018,
+      "last_maintenance_date": "2026-08-29"
+    },
+    {
+      "id": "veh_104",
+      "vehicle_number": "TRK-104",
+      "model": "Scania P-Series Heavy Compactor",
+      "type": "Rear Loader Compactor",
+      "capacity_tons": 15,
+      "current_load_tons": 11.4,
+      "fuel_percentage": 45,
+      "status": "ON_ROUTE",
+      "driver_id": null,
+      "driver_name": "Unassigned",
+      "assigned_zone_id": "zone_04",
+      "current_lat": 40.702,
+      "current_lng": -74.032,
+      "last_maintenance_date": "2026-07-30"
+    },
+    {
+      "id": "veh_105",
+      "vehicle_number": "TRK-105",
+      "model": "Mack LR Front Loader Hazmat",
+      "type": "Enclosed Hazmat Unit",
+      "capacity_tons": 8,
+      "current_load_tons": 0,
+      "fuel_percentage": 85,
+      "status": "STANDBY",
+      "driver_id": null,
+      "driver_name": "Reserve Crew",
+      "assigned_zone_id": "zone_01",
+      "current_lat": 40.71,
+      "current_lng": -74.004,
+      "last_maintenance_date": "2026-08-10"
+    }
+  ],
+  "schedules": [
+    {
+      "id": "sch_01",
+      "zone_id": "zone_01",
+      "zone_name": "Downtown Central",
+      "vehicle_id": "veh_101",
+      "vehicle_number": "TRK-101",
+      "collection_type": "General Waste & Commercial",
+      "day_of_week": "Monday",
+      "start_time": "06:00",
+      "end_time": "11:30",
+      "frequency": "Bi-Weekly (Mon/Thu)",
+      "status": "ACTIVE",
+      "route_checkpoints": [
+        {
+          "name": "Broadway Plaza Mall",
+          "status": "COMPLETED",
+          "time": "06:30"
+        },
+        {
+          "name": "City Hall Civic Complex",
+          "status": "COMPLETED",
+          "time": "07:15"
+        },
+        {
+          "name": "Financial Center Courtyard",
+          "status": "IN_PROGRESS",
+          "time": "08:45"
+        },
+        {
+          "name": "Market Street Commercial Strip",
+          "status": "PENDING",
+          "time": "10:00"
+        }
+      ]
+    },
+    {
+      "id": "sch_02",
+      "zone_id": "zone_02",
+      "zone_name": "Metro North Residential",
+      "vehicle_id": "veh_102",
+      "vehicle_number": "TRK-102",
+      "collection_type": "Dry Recyclables (Plastic, Paper, Glass)",
+      "day_of_week": "Tuesday",
+      "start_time": "07:00",
+      "end_time": "13:00",
+      "frequency": "Weekly",
+      "status": "ACTIVE",
+      "route_checkpoints": [
+        {
+          "name": "Maplewood Ave (Blocks 1-12)",
+          "status": "COMPLETED",
+          "time": "07:45"
+        },
+        {
+          "name": "North Park School Zone",
+          "status": "IN_PROGRESS",
+          "time": "09:00"
+        },
+        {
+          "name": "Highland Ridge Estates",
+          "status": "PENDING",
+          "time": "10:30"
+        },
+        {
+          "name": "Sunset Meadow Subdivisions",
+          "status": "PENDING",
+          "time": "12:00"
+        }
+      ]
+    },
+    {
+      "id": "sch_03",
+      "zone_id": "zone_03",
+      "zone_name": "Green Valley Eco-District",
+      "vehicle_id": "veh_103",
+      "vehicle_number": "TRK-103",
+      "collection_type": "Organic & Compostables",
+      "day_of_week": "Wednesday",
+      "start_time": "07:30",
+      "end_time": "12:30",
+      "frequency": "Weekly",
+      "status": "ACTIVE",
+      "route_checkpoints": [
+        {
+          "name": "Green Valley Farmers Market Hub",
+          "status": "PENDING",
+          "time": "07:45"
+        },
+        {
+          "name": "Orchard Lane Community Gardens",
+          "status": "PENDING",
+          "time": "09:15"
+        },
+        {
+          "name": "Pine Grove Eco-Villages",
+          "status": "PENDING",
+          "time": "11:00"
+        }
+      ]
+    },
+    {
+      "id": "sch_04",
+      "zone_id": "zone_04",
+      "zone_name": "West Industrial & Port",
+      "vehicle_id": "veh_104",
+      "vehicle_number": "TRK-104",
+      "collection_type": "Industrial Bulk & Scrap",
+      "day_of_week": "Thursday",
+      "start_time": "05:30",
+      "end_time": "12:00",
+      "frequency": "Weekly",
+      "status": "ACTIVE",
+      "route_checkpoints": [
+        {
+          "name": "Harbor Logistics Bay 4",
+          "status": "PENDING",
+          "time": "06:00"
+        },
+        {
+          "name": "Pier 12 Processing Yard",
+          "status": "PENDING",
+          "time": "08:00"
+        },
+        {
+          "name": "Steel Works Foundry Avenue",
+          "status": "PENDING",
+          "time": "10:30"
+        }
+      ]
+    }
+  ],
+  "complaints": [
+    {
+      "id": "cmp_1001",
+      "ticket_number": "WST-2026-8812",
+      "citizen_name": "Marcus Bell",
+      "citizen_email": "m.bell@example.com",
+      "citizen_phone": "+1 (555) 431-8920",
+      "category": "Overflowing Bin",
+      "description": "Three large public waste bins at the corner of 5th Ave and Pine are severely overflowing onto the sidewalk after the weekend farmer market.",
+      "priority": "HIGH",
+      "zone_id": "zone_01",
+      "zone_name": "Downtown Central",
+      "address": "Corner of 5th Avenue & Pine Street, Downtown",
+      "latitude": 40.7135,
+      "longitude": -74.0055,
+      "photo_url": "https://images.unsplash.com/photo-1605600659908-0ef719419d41?w=600",
+      "status": "IN_PROGRESS",
+      "assigned_vehicle_id": "veh_101",
+      "assigned_driver_name": "Marcus Chen",
+      "resolution_notes": "Crew dispatched on TRK-101. Estimated arrival within 30 minutes with supplementary compactor.",
+      "resolution_photo_url": null,
+      "resolved_at": null,
+      "created_at": "2026-09-04T01:31:51.587Z"
+    },
+    {
+      "id": "cmp_1002",
+      "ticket_number": "WST-2026-8813",
+      "citizen_name": "Samantha Reed",
+      "citizen_email": "s.reed@greenmail.org",
+      "citizen_phone": "+1 (555) 902-1144",
+      "category": "Missed Collection",
+      "description": "Scheduled blue recycling bin collection was missed yesterday for odd-numbered homes along Birchwood Lane.",
+      "priority": "MEDIUM",
+      "zone_id": "zone_02",
+      "zone_name": "Metro North Residential",
+      "address": "42 Birchwood Lane, Metro North",
+      "latitude": 40.7289,
+      "longitude": -73.992,
+      "photo_url": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600",
+      "status": "ASSIGNED",
+      "assigned_vehicle_id": "veh_102",
+      "assigned_driver_name": "Elena Rodriguez",
+      "resolution_notes": "Driver notified to include Birchwood Lane loop during afternoon run.",
+      "resolution_photo_url": null,
+      "resolved_at": null,
+      "created_at": "2026-09-03T23:31:51.588Z"
+    },
+    {
+      "id": "cmp_1003",
+      "ticket_number": "WST-2026-8814",
+      "citizen_name": "David Vance",
+      "citizen_email": "dvance@technet.io",
+      "citizen_phone": "+1 (555) 332-9011",
+      "category": "Illegal Dumping",
+      "description": "Multiple discarded tires, concrete bricks, and broken drywall left along the service alley behind the warehouse.",
+      "priority": "URGENT",
+      "zone_id": "zone_04",
+      "zone_name": "West Industrial & Port",
+      "address": "Alleyway behind 1100 Dockside Blvd, Industrial Sector",
+      "latitude": 40.7042,
+      "longitude": -74.031,
+      "photo_url": "https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?w=600",
+      "status": "REPORTED",
+      "assigned_vehicle_id": null,
+      "assigned_driver_name": null,
+      "resolution_notes": null,
+      "resolution_photo_url": null,
+      "resolved_at": null,
+      "created_at": "2026-09-04T03:31:51.588Z"
+    },
+    {
+      "id": "cmp_1004",
+      "ticket_number": "WST-2026-8799",
+      "citizen_name": "Claire Huang",
+      "citizen_email": "claire.h@outlook.com",
+      "citizen_phone": "+1 (555) 776-3211",
+      "category": "Damaged Bin / Infrastructure",
+      "description": "Cracked municipal wheelie bin lid causing rainwater to flood bin contents.",
+      "priority": "LOW",
+      "zone_id": "zone_03",
+      "zone_name": "Green Valley Eco-District",
+      "address": "15 Meadow Park Lane, Green Valley",
+      "latitude": 40.741,
+      "longitude": -74.019,
+      "photo_url": "https://images.unsplash.com/photo-1528323273322-d81458248d40?w=600",
+      "status": "RESOLVED",
+      "assigned_vehicle_id": "veh_103",
+      "assigned_driver_name": "Jamal Washington",
+      "resolution_notes": "Replaced 240L wheelie bin lid with brand new heavy-duty UV-treated component. Old lid recycled.",
+      "resolution_photo_url": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600",
+      "resolved_at": "2026-09-03T04:31:51.588Z",
+      "created_at": "2026-09-02T04:31:51.588Z"
+    }
+  ],
+  "pickup_requests": [
+    {
+      "id": "pck_2001",
+      "request_number": "PCK-2026-0312",
+      "citizen_name": "Dr. Leonard King",
+      "citizen_email": "l.king@university.edu",
+      "citizen_phone": "+1 (555) 654-3210",
+      "waste_type": "Electronic Waste (E-Waste)",
+      "estimated_volume": "4 desktop monitors, 2 towers, UPS units",
+      "address": "88 Campus Science Drive, Building C",
+      "zone_id": "zone_02",
+      "latitude": 40.7315,
+      "longitude": -73.9912,
+      "preferred_date": "2026-09-08",
+      "preferred_timeslot": "Morning (09:00 - 12:00)",
+      "photo_url": "https://images.unsplash.com/photo-1588508065123-287b28e013da?w=600",
+      "status": "CONFIRMED",
+      "assigned_vehicle_id": "veh_103",
+      "assigned_vehicle_number": "TRK-103",
+      "scheduled_date": "2026-09-08",
+      "scheduled_time": "10:15 AM",
+      "staff_notes": "Hazmat-certified e-waste recycler assigned. Items must be curbside.",
+      "created_at": "2026-09-03T16:31:51.588Z"
+    },
+    {
+      "id": "pck_2002",
+      "request_number": "PCK-2026-0313",
+      "citizen_name": "Maria Gonzalez",
+      "citizen_email": "maria.g@gmail.com",
+      "citizen_phone": "+1 (555) 812-7765",
+      "waste_type": "Bulky Household & Furniture",
+      "estimated_volume": "Three-seater sectional sofa and wooden coffee table",
+      "address": "320 Highland Terrace, Apt 4B",
+      "zone_id": "zone_01",
+      "latitude": 40.715,
+      "longitude": -74.007,
+      "preferred_date": "2026-09-09",
+      "preferred_timeslot": "Afternoon (13:00 - 16:00)",
+      "photo_url": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600",
+      "status": "REQUESTED",
+      "assigned_vehicle_id": null,
+      "assigned_vehicle_number": null,
+      "scheduled_date": null,
+      "scheduled_time": null,
+      "staff_notes": "Under review by dispatch supervisor.",
+      "created_at": "2026-09-04T00:31:51.588Z"
+    },
+    {
+      "id": "pck_2003",
+      "request_number": "PCK-2026-0314",
+      "citizen_name": "Oliver Vance",
+      "citizen_email": "oliver.v@ecotech.com",
+      "citizen_phone": "+1 (555) 998-1200",
+      "waste_type": "Chemicals / Paint / Batteries",
+      "estimated_volume": "6 cans leftover latex paint, 2 auto batteries",
+      "address": "410 Industrial Parkway, Unit 12",
+      "zone_id": "zone_04",
+      "latitude": 40.701,
+      "longitude": -74.036,
+      "preferred_date": "2026-09-10",
+      "preferred_timeslot": "Morning (08:00 - 11:00)",
+      "photo_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600",
+      "status": "SCHEDULED",
+      "assigned_vehicle_id": "veh_105",
+      "assigned_vehicle_number": "TRK-105",
+      "scheduled_date": "2026-09-10",
+      "scheduled_time": "09:30 AM",
+      "staff_notes": "Enclosed Hazmat carrier dispatched. Drums must remain sealed.",
+      "created_at": "2026-09-03T08:31:51.588Z"
+    }
+  ],
+  "service_logs": [
+    {
+      "id": "log_3001",
+      "schedule_id": "sch_01",
+      "vehicle_id": "veh_101",
+      "driver_name": "Marcus Chen",
+      "zone_name": "Downtown Central",
+      "service_date": "2026-09-01",
+      "waste_collected_tons": 8.4,
+      "checkpoints_total": 4,
+      "checkpoints_completed": 4,
+      "distance_traveled_km": 32.5,
+      "fuel_consumed_liters": 14.8,
+      "notes": "Completed all morning commercial checkpoints ahead of schedule.",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "log_3002",
+      "schedule_id": "sch_02",
+      "vehicle_id": "veh_102",
+      "driver_name": "Elena Rodriguez",
+      "zone_name": "Metro North Residential",
+      "service_date": "2026-09-02",
+      "waste_collected_tons": 10.2,
+      "checkpoints_total": 4,
+      "checkpoints_completed": 4,
+      "distance_traveled_km": 44.1,
+      "fuel_consumed_liters": 18.2,
+      "notes": "High recycling compliance observed in Sector 2.",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "log_3003",
+      "schedule_id": "sch_03",
+      "vehicle_id": "veh_103",
+      "driver_name": "Jamal Washington",
+      "zone_name": "Green Valley Eco-District",
+      "service_date": "2026-09-03",
+      "waste_collected_tons": 6.7,
+      "checkpoints_total": 3,
+      "checkpoints_completed": 3,
+      "distance_traveled_km": 26,
+      "fuel_consumed_liters": 0,
+      "notes": "Electric mini collector delivered zero-emission residential pickups.",
+      "status": "COMPLETED"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "ntf_01",
+      "recipient_role": "ALL",
+      "recipient_email": null,
+      "title": "Urgent Spill Alert Dispatched",
+      "message": "Illegal dumping reported at West Industrial Sector. Emergency cleanup team TRK-105 on standby.",
+      "type": "ALERT",
+      "related_id": "cmp_1003",
+      "is_read": true,
+      "created_at": "2026-09-04T03:46:51.588Z"
+    },
+    {
+      "id": "ntf_02",
+      "recipient_role": "ADMIN",
+      "recipient_email": null,
+      "title": "New Bulk Pickup Request",
+      "message": "Citizen Sophia Martinez submitted request PCK-2026-0313 for bulky sectional furniture.",
+      "type": "DISPATCH",
+      "related_id": "pck_2002",
+      "is_read": true,
+      "created_at": "2026-09-04T01:31:51.588Z"
+    },
+    {
+      "id": "ntf_03",
+      "recipient_role": "CITIZEN",
+      "recipient_email": "claire.h@outlook.com",
+      "title": "Complaint WST-2026-8799 Resolved",
+      "message": "Municipal maintenance team has replaced your damaged wheelie bin lid with a new UV-treated unit.",
+      "type": "RESOLUTION",
+      "related_id": "cmp_1004",
+      "is_read": true,
+      "created_at": "2026-09-03T04:31:51.588Z"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "Version": "2012-10-17",
+  "Id": "SmartWasteSNSPolicy",
+  "Statement": [
+    {
+      "Sid": "AllowBackendServicePublish",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": [
+        "SNS:Publish",
+        "SNS:GetTopicAttributes"
+      ],
+      "Resource": "arn:aws:sns:us-east-1:123456789012:smartwaste-notifications-topic",
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincipalAccount": "123456789012"
+        }
+      }
+    },
+    {
+      "Sid": "AllowSubscriberSubscriptions",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": [
+        "SNS:Subscribe",
+        "SNS:Receive"
+      ],
+      "Resource": "arn:aws:sns:us-east-1:123456789012:smartwaste-notifications-topic"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "smart-waste-collection-management-system",
+  "version": "1.0.0",
+  "description": "Smart Waste Collection Management System - Citizen Reporting, Fleet Dispatch, Route Scheduling, and Service Monitoring",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "seed": "node backend/database/seedData.js",
+    "dev": "node backend/server.js",
+    "test": "node tests/runAllTests.js"
+  },
+  "keywords": [
+    "waste-management",
+    "smart-city",
+    "fleet-tracking",
+    "citizen-portal",
+    "aws-ready"
+  ],
+  "author": "Smart City Solutions",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.23.0",
+    "uuid": "^11.0.5"
+  }
+}

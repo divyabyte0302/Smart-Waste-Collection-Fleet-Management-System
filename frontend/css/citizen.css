@@ -1,0 +1,257 @@
+/* ==========================================================================
+   Smart Waste Collection Management System - Citizen Portal CSS
+   ========================================================================== */
+
+.citizen-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2.5rem 1.5rem;
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+}
+
+.citizen-hero h2 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.citizen-hero p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.citizen-quick-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Service Request Grid */
+.citizen-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+}
+
+@media (max-width: 992px) {
+  .citizen-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* File Upload Dropzone */
+.file-dropzone {
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 1.75rem 1rem;
+  text-align: center;
+  background: rgba(15, 23, 42, 0.4);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.file-dropzone:hover, .file-dropzone.dragover {
+  border-color: var(--emerald-500);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.dropzone-icon {
+  font-size: 2.2rem;
+  color: var(--emerald-400);
+  margin-bottom: 0.5rem;
+}
+
+.file-preview-wrapper {
+  margin-top: 1rem;
+  display: none;
+  position: relative;
+  max-width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.file-preview-wrapper img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-remove-file {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--rose-500);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Priority Option Selector */
+.priority-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.priority-pill {
+  position: relative;
+}
+
+.priority-pill input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.priority-pill label {
+  display: block;
+  text-align: center;
+  padding: 0.5rem 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: rgba(15, 23, 42, 0.6);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--text-muted);
+}
+
+.priority-pill input[type="radio"]:checked + label {
+  border-color: var(--emerald-500);
+  background: rgba(16, 185, 129, 0.2);
+  color: #fff;
+}
+
+/* Live Tracking Timeline */
+.tracking-search-box {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tracking-result-card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.timeline-stepper {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.timeline-stepper::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 15px;
+  bottom: 15px;
+  width: 2px;
+  background: #334155;
+}
+
+.timeline-step {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-marker {
+  position: absolute;
+  left: -2.5rem;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1e293b;
+  border: 2px solid #64748b;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.timeline-step.completed .step-marker {
+  background: var(--emerald-500);
+  border-color: var(--emerald-400);
+  color: #fff;
+  box-shadow: 0 0 10px var(--emerald-glow);
+}
+
+.timeline-step.active .step-marker {
+  background: var(--cyan-500);
+  border-color: var(--cyan-400);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+}
+
+.step-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.step-time {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+}
+
+.recent-tickets-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.recent-tickets-table th {
+  text-align: left;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.recent-tickets-table td {
+  padding: 0.85rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.recent-tickets-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}

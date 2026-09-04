@@ -1,0 +1,48 @@
+graph TD
+    classDef client fill:#1e293b,stroke:#06b6d4,stroke-width:2px,color:#fff;
+    classDef edge fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#fff;
+    classDef aws fill:#0b1120,stroke:#10b981,stroke-width:2px,color:#fff;
+    classDef storage fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#fff;
+
+    subgraph Clients ["Touchpoints"]
+        C1["Citizen Mobile App"]:::client
+        C2["Citizen Web Portal"]:::client
+        C3["Admin Dispatch Console"]:::client
+        C4["Driver In-Cab Tablet"]:::client
+    end
+
+    subgraph AWS_Cloud ["Amazon Web Services (AWS)"]
+        CF["Amazon CloudFront CDN"]:::edge
+        ALB["Application Load Balancer (Public Subnet)"]:::edge
+
+        subgraph ECS_Cluster ["ECS Fargate (Private Subnet)"]
+            T1["Node.js API Microservice - Pod A"]:::aws
+            T2["Node.js API Microservice - Pod B"]:::aws
+        end
+
+        subgraph AWS_Storage ["Persistence & Media"]
+            S3["Amazon S3 Bucket<br/>(Photos & Evidence)"]:::storage
+            RDS[("Amazon Aurora PostgreSQL<br/>(Multi-AZ Cluster)")]:::storage
+        end
+
+        subgraph Notifications ["Event & Alerting"]
+            SNS["Amazon SNS Topic<br/>(SMS & Push Alerts)"]:::aws
+            CW["Amazon CloudWatch<br/>(Logs & Alarms)"]:::aws
+        end
+    end
+
+    C1 --> CF
+    C2 --> CF
+    C3 --> CF
+    C4 --> CF
+    CF --> ALB
+    ALB --> T1
+    ALB --> T2
+
+    T1 --> S3
+    T2 --> S3
+    T1 --> RDS
+    T2 --> RDS
+    T1 --> SNS
+    T1 --> CW
+    T2 --> CW

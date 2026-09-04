@@ -1,0 +1,171 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Production AWS CloudFormation Stack for Smart Waste Collection Management System'
+
+Parameters:
+  EnvironmentName:
+    Type: String
+    Default: production
+    Description: 'Deployment environment identifier'
+
+  AppContainerImage:
+    Type: String
+    Default: 'public.ecr.aws/smartwaste/api:latest'
+    Description: 'ECR Docker container image URI'
+
+  ContainerPort:
+    Type: Number
+    Default: 5000
+    Description: 'Port exposed by the Node.js Express server'
+
+Resources:
+  # ============================================================================
+  # S3 Storage Bucket for Incident & Resolution Photos
+  # ============================================================================
+  WasteMediaBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub 'smartwaste-media-${AWS::AccountId}-${AWS::Region}'
+      AccessControl: Private
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      LifecycleConfiguration:
+        Rules:
+          - Id: TransitionOldPhotosToIA
+            Status: Enabled
+            Transitions:
+              - TransitionInDays: 90
+                StorageClass: STANDARD_IA
+              - TransitionInDays: 365
+                StorageClass: GLACIER
+
+  # ============================================================================
+  # SNS Notification Topic for Dispatch & Citizen Alerts
+  # ============================================================================
+  DispatchAlertsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub '${EnvironmentName}-smartwaste-dispatch-alerts'
+      DisplayName: 'Smart Waste Collection Dispatch & Citizen Alerts'
+
+  # ============================================================================
+  # CloudWatch Log Group
+  # ============================================================================
+  AppLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/ecs/smartwaste-${EnvironmentName}'
+      RetentionInDays: 30
+
+  # ============================================================================
+  # ECS Cluster & Task Execution Role
+  # ============================================================================
+  ECSCluster:
+    Type: AWS::ECS::Cluster
+    Properties:
+      ClusterName: !Sub '${EnvironmentName}-smartwaste-cluster'
+
+  ECSTaskExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${EnvironmentName}-smartwaste-ecs-execution-role'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+
+  ECSTaskRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${EnvironmentName}-smartwaste-ecs-task-role'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: SmartWasteAppPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                  - s3:ListBucket
+                Resource:
+                  - !GetAtt WasteMediaBucket.Arn
+                  - !Sub '${WasteMediaBucket.Arn}/*'
+              - Effect: Allow
+                Action:
+                  - sns:Publish
+                Resource: !Ref DispatchAlertsTopic
+
+  # ============================================================================
+  # ECS Task Definition (Fargate)
+  # ============================================================================
+  AppTaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: !Sub '${EnvironmentName}-smartwaste-task'
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+        - FARGATE
+      Cpu: '512'
+      Memory: '1024'
+      ExecutionRoleArn: !GetAtt ECSTaskExecutionRole.Arn
+      TaskRoleArn: !GetAtt ECSTaskRole.Arn
+      ContainerDefinitions:
+        - Name: smartwaste-api
+          Image: !Ref AppContainerImage
+          Essential: true
+          PortMappings:
+            - ContainerPort: !Ref ContainerPort
+              Protocol: tcp
+          Environment:
+            - Name: NODE_ENV
+              Value: production
+            - Name: PORT
+              Value: !Sub '${ContainerPort}'
+            - Name: STORAGE_DRIVER
+              Value: s3
+            - Name: AWS_S3_BUCKET_NAME
+              Value: !Ref WasteMediaBucket
+            - Name: AWS_SNS_TOPIC_ARN
+              Value: !Ref DispatchAlertsTopic
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref AppLogGroup
+              awslogs-region: !Ref AWS::Region
+              awslogs-stream-prefix: api
+
+Outputs:
+  S3BucketName:
+    Description: 'Provisioned S3 Bucket for Media'
+    Value: !Ref WasteMediaBucket
+    Export:
+      Name: !Sub '${EnvironmentName}-SmartWaste-S3Bucket'
+
+  SNSTopicArn:
+    Description: 'Amazon SNS Topic ARN for Alerts'
+    Value: !Ref DispatchAlertsTopic
+    Export:
+      Name: !Sub '${EnvironmentName}-SmartWaste-SNSTopic'
+
+  ECSClusterName:
+    Description: 'Amazon ECS Fargate Cluster Name'
+    Value: !Ref ECSCluster
