@@ -218,17 +218,18 @@ async function runE2EWorkflows() {
   const vId = (unpack(vRes).vehicle || unpack(vRes)).id;
 
   // 2. Admin Creates Initial Schedule
+  const e2eDate = `2026-12-${String(Math.floor(10 + Math.random() * 18))}`;
   const schedRes = await request('/schedules', {
     method: 'POST',
     headers: { Authorization: `Bearer ${adminToken}` }
   }, {
     area: 'Civic Zone 1',
-    collectionDate: '2026-10-05',
+    collectionDate: e2eDate,
     startTime: '08:00',
     endTime: '11:00',
     wasteType: 'Recyclable Waste',
     assignedVehicle: plate,
-    assignedDriver: 'Marcus Chen'
+    assignedDriver: `Driver ${randomSuffix}`
   });
   assert.strictEqual(schedRes.status, 201, 'Schedule creation returns 201');
 
@@ -238,7 +239,7 @@ async function runE2EWorkflows() {
     headers: { Authorization: `Bearer ${adminToken}` }
   }, {
     area: 'Civic Zone 2',
-    collectionDate: '2026-10-05',
+    collectionDate: e2eDate,
     startTime: '09:00', // Overlaps with 08:00-11:00
     endTime: '12:00',
     wasteType: 'Household Waste',

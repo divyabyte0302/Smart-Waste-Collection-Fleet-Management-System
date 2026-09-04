@@ -3754,6 +3754,148 @@
         "Pine Grove Village",
         "Eco Hub Community Center"
       ]
+    },
+    {
+      "id": "sch_seed_001",
+      "createdAt": "2026-09-01T06:00:00.000Z",
+      "updatedAt": "2026-09-01T11:45:00.000Z",
+      "scheduleId": "SCH-2026-1001",
+      "area": "Downtown Central",
+      "zone": "Downtown Central",
+      "collectionDate": "2026-09-07",
+      "startTime": "07:00 AM",
+      "endTime": "11:30 AM",
+      "wasteType": "Organic Waste",
+      "collectionType": "Organic Waste",
+      "vehicleId": "TRK-101 (Compactor)",
+      "staffId": "usr_staff_001",
+      "staffName": "Marcus Chen",
+      "assignedStaffId": "usr_staff_001",
+      "assignedStaffName": "Marcus Chen",
+      "status": "Completed",
+      "checkpoints": [
+        "Broadway Market",
+        "Civic Center Plaza",
+        "Financial Towers"
+      ]
+    },
+    {
+      "id": "sch_seed_002",
+      "createdAt": "2026-09-02T06:00:00.000Z",
+      "updatedAt": "2026-09-04T08:30:00.000Z",
+      "scheduleId": "SCH-2026-1002",
+      "area": "Metro North Residential",
+      "zone": "Metro North Residential",
+      "collectionDate": "2026-09-09",
+      "startTime": "08:00 AM",
+      "endTime": "01:00 PM",
+      "wasteType": "Recyclable Waste",
+      "collectionType": "Recyclable Materials",
+      "vehicleId": "TRK-102 (Recycler)",
+      "staffId": "usr_staff_001",
+      "staffName": "Marcus Chen",
+      "assignedStaffId": "usr_staff_001",
+      "assignedStaffName": "Marcus Chen",
+      "status": "Active",
+      "checkpoints": [
+        "Maplewood Avenue",
+        "North Park School",
+        "Highland Ridge"
+      ]
+    },
+    {
+      "id": "sch_seed_003",
+      "createdAt": "2026-09-03T06:00:00.000Z",
+      "updatedAt": "2026-09-03T06:00:00.000Z",
+      "scheduleId": "SCH-2026-1003",
+      "area": "Green Valley Eco-District",
+      "zone": "Green Valley Eco-District",
+      "collectionDate": "2026-09-11",
+      "startTime": "09:00 AM",
+      "endTime": "02:00 PM",
+      "wasteType": "Electronic Waste",
+      "collectionType": "Electronic & Bulky Waste",
+      "vehicleId": "TRK-103 (Electric Mini)",
+      "staffId": "usr_staff_001",
+      "staffName": "Marcus Chen",
+      "assignedStaffId": "usr_staff_001",
+      "assignedStaffName": "Marcus Chen",
+      "status": "Scheduled",
+      "checkpoints": [
+        "Pine Grove Village",
+        "Eco Hub Community Center"
+      ]
+    },
+    {
+      "id": "sch_seed_001",
+      "createdAt": "2026-09-01T06:00:00.000Z",
+      "updatedAt": "2026-09-01T11:45:00.000Z",
+      "scheduleId": "SCH-2026-1001",
+      "area": "Downtown Central",
+      "zone": "Downtown Central",
+      "collectionDate": "2026-09-07",
+      "startTime": "07:00 AM",
+      "endTime": "11:30 AM",
+      "wasteType": "Organic Waste",
+      "collectionType": "Organic Waste",
+      "vehicleId": "TRK-101 (Compactor)",
+      "staffId": "usr_staff_001",
+      "staffName": "Marcus Chen",
+      "assignedStaffId": "usr_staff_001",
+      "assignedStaffName": "Marcus Chen",
+      "status": "Completed",
+      "checkpoints": [
+        "Broadway Market",
+        "Civic Center Plaza",
+        "Financial Towers"
+      ]
+    },
+    {
+      "id": "sch_seed_002",
+      "createdAt": "2026-09-02T06:00:00.000Z",
+      "updatedAt": "2026-09-04T08:30:00.000Z",
+      "scheduleId": "SCH-2026-1002",
+      "area": "Metro North Residential",
+      "zone": "Metro North Residential",
+      "collectionDate": "2026-09-09",
+      "startTime": "08:00 AM",
+      "endTime": "01:00 PM",
+      "wasteType": "Recyclable Waste",
+      "collectionType": "Recyclable Materials",
+      "vehicleId": "TRK-102 (Recycler)",
+      "staffId": "usr_staff_001",
+      "staffName": "Marcus Chen",
+      "assignedStaffId": "usr_staff_001",
+      "assignedStaffName": "Marcus Chen",
+      "status": "Active",
+      "checkpoints": [
+        "Maplewood Avenue",
+        "North Park School",
+        "Highland Ridge"
+      ]
+    },
+    {
+      "id": "sch_seed_003",
+      "createdAt": "2026-09-03T06:00:00.000Z",
+      "updatedAt": "2026-09-03T06:00:00.000Z",
+      "scheduleId": "SCH-2026-1003",
+      "area": "Green Valley Eco-District",
+      "zone": "Green Valley Eco-District",
+      "collectionDate": "2026-09-11",
+      "startTime": "09:00 AM",
+      "endTime": "02:00 PM",
+      "wasteType": "Electronic Waste",
+      "collectionType": "Electronic & Bulky Waste",
+      "vehicleId": "TRK-103 (Electric Mini)",
+      "staffId": "usr_staff_001",
+      "staffName": "Marcus Chen",
+      "assignedStaffId": "usr_staff_001",
+      "assignedStaffName": "Marcus Chen",
+      "status": "Scheduled",
+      "checkpoints": [
+        "Pine Grove Village",
+        "Eco Hub Community Center"
+      ]
     }
   ],
   "complaints": [

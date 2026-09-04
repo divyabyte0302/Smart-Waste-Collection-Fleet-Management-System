@@ -1,6 +1,11 @@
 import { ApiResponse } from '../types/api.types';
 
-const BASE_URL = '/api';
+const getUrl = (endpoint: string) => {
+  const rawBase = (import.meta.env.VITE_API_BASE_URL as string) || '/api';
+  const base = rawBase.replace(/\/$/, '');
+  const path = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  return `${base}${path}`;
+};
 
 export async function request<T>(endpoint: string, options: RequestInit = {}): Promise<ApiResponse<T>> {
   const token = localStorage.getItem('smartwaste_jwt_token');
@@ -14,7 +19,7 @@ export async function request<T>(endpoint: string, options: RequestInit = {}): P
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const response = await fetch(`${BASE_URL}${endpoint}`, {
+  const response = await fetch(getUrl(endpoint), {
     ...options,
     headers,
   });

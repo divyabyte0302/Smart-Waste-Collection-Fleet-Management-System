@@ -58,17 +58,21 @@ async function runScheduleTests(tokens) {
   console.log('  ✓ API validation rejects incomplete route schedules with 400');
 
   // Test 2: Admin Creates Collection Schedule
+  const dynamicSuffix = Math.floor(1000 + Math.random() * 9000);
+  const testDate = `2026-11-${String(Math.floor(10 + Math.random() * 18))}`;
+  const testVehicle = `TRK-${dynamicSuffix}`;
+
   const createRes = await request('/schedules', {
     method: 'POST',
     headers: { Authorization: `Bearer ${adminToken}` }
   }, {
-    area: 'Downtown Sector 1 - Commercial District',
-    collectionDate: '2026-09-25',
+    area: `Downtown Sector ${dynamicSuffix}`,
+    collectionDate: testDate,
     startTime: '06:00',
     endTime: '10:00',
     wasteType: 'Household Waste',
-    assignedVehicle: 'TRK-201',
-    assignedDriver: 'Marcus Chen',
+    assignedVehicle: testVehicle,
+    assignedDriver: `Driver ${dynamicSuffix}`,
     routeDescription: 'Commercial center dumpsters and recyclable containers'
   });
 

@@ -137,16 +137,19 @@ app.use((err, req, res, next) => {
 app.use(errorMiddleware);
 
 const PORT = env.PORT || 5000;
-const server = app.listen(PORT, () => {
-  console.log('================================================================');
-  console.log(` SMART WASTE COLLECTION MANAGEMENT SYSTEM (AWS PRODUCTION READY)`);
-  console.log(` Port: ${PORT}`);
-  console.log(` URL:  http://localhost:${PORT}`);
-  console.log(` Mode: ${env.NODE_ENV}`);
-  console.log(` Security: Helmet Headers, CORS Whitelist, IP Rate Limiter Active`);
-  console.log(` AWS Services: RDS PostgreSQL, S3, SNS, CloudWatch Initialized`);
-  console.log('================================================================');
-});
+let server = null;
+if (!process.env.VERCEL) {
+  server = app.listen(PORT, () => {
+    console.log('================================================================');
+    console.log(` SMART WASTE COLLECTION MANAGEMENT SYSTEM (AWS PRODUCTION READY)`);
+    console.log(` Port: ${PORT}`);
+    console.log(` URL:  http://localhost:${PORT}`);
+    console.log(` Mode: ${env.NODE_ENV}`);
+    console.log(` Security: Helmet Headers, CORS Whitelist, IP Rate Limiter Active`);
+    console.log(` AWS Services: RDS PostgreSQL, S3, SNS, CloudWatch Initialized`);
+    console.log('================================================================');
+  });
+}
 
 // Handle uncaught exceptions gracefully
 process.on('uncaughtException', (err) => {

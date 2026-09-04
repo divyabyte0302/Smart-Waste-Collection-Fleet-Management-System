@@ -4,9 +4,10 @@
   "description": "Smart Waste Collection Management System - Citizen Reporting, Fleet Dispatch, Route Scheduling, and Service Monitoring",
   "main": "backend/server.js",
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "node backend/src/server.js",
     "seed": "node backend/database/seedData.js",
-    "dev": "node backend/server.js",
+    "dev": "node backend/src/server.js",
+    "build": "cd frontend && npm install && npm run build",
     "test": "node tests/runAllTests.js"
   },
   "keywords": [
